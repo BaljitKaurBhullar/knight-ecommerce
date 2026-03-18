@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Knight</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="knight-header">
+        <a href="index.html" class="logo">KNIGHT.</a>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="collections.html">Collections</a>
+            <a href="about.html">About</a>
+        </nav>
+        <div class="cart-wrapper">
+            <div class="cart" id="cart-button">
+                🛒 (<span id="cart-count">0</span>)
+            </div>
+            <div class="cart-dropdown" id="cart-dropdown">
+                <h3>Your Cart</h3>
+                <div id="cart-items-list">
+                    <p>Your cart is empty.</p>
+                </div>
+                <a href="shop.html" class="checkout-btn">Go to Shop</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-container">
+        <h1 class="page-title">The Knight Story</h1>
+        
+        <div class="about-content">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=80" alt="Office Workspace" class="about-hero-img">
+            
+            <div class="about-text-box">
+                <h2>Forged for the Modern Professional</h2>
+                <p>Founded in 2026, Knight started with a simple observation: luxury everyday carry items were either too expensive or lacked true durability. We decided to bridge that gap.</p>
+                <p>We source the finest materials from around the globe—from mechanical watch movements to full-grain leathers—and deliver them directly to you without the traditional retail markup.</p>
+                
+                <h3>Our Promise</h3>
+                <ul class="promise-list">
+                    <li><strong>Uncompromising Quality:</strong> We rigorously test every product.</li>
+                    <li><strong>Timeless Design:</strong> Trends fade, but elegance remains.</li>
+                    <li><strong>Customer First:</strong> Your satisfaction is our absolute priority.</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="knight-footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Knight E-Commerce. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const cartBtn = document.getElementById('cart-button');
+        const cartDropdown = document.getElementById('cart-dropdown');
+        cartBtn.addEventListener('click', function() {
+            cartDropdown.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

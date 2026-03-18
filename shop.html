@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | Knight E-Commerce</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="knight-header">
+        <a href="index.html" class="logo">KNIGHT.</a>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="collections.html">Collections</a>
+            <a href="about.html">About</a>
+        </nav>
+        <div class="cart-wrapper">
+            <div class="cart" id="cart-button">
+                🛒 (<span id="cart-count">0</span>)
+            </div>
+            
+            <div class="cart-dropdown" id="cart-dropdown">
+                <h3>Your Cart</h3>
+                <div id="cart-items-list">
+                    <p>Your cart is empty.</p>
+                </div>
+                <a href="#" class="checkout-btn">Go to Checkout</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="shop-container">
+        <h1 class="shop-title">New Arrivals</h1>
+        
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=400&q=80" alt="Sleek Obsidian Watch" class="product-image">
+                <h3>The Obsidian Watch</h3>
+                <p class="price">₹4,999</p>
+                <button class="buy-btn" data-name="The Obsidian Watch" data-price="4999">Add to Cart</button>
+                <a href="https://rzp.io/i/example-link" class="buy-now-btn" target="_blank">Buy Now</a>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=400&q=80" alt="Brown Leather Wallet" class="product-image">
+                <h3>Classic Leather Wallet</h3>
+                <p class="price">₹1,499</p>
+                <button class="buy-btn" data-name="Classic Leather Wallet" data-price="1499">Add to Cart</button>
+                <a href="https://rzp.io/i/example-link" class="buy-now-btn" target="_blank">Buy Now</a>
+
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1585336261022-680e295ce3fe?auto=format&fit=crop&w=400&q=80" alt="Luxury Matte Black Pen" class="product-image">
+                <h3>Matte Black Pen</h3>
+                <p class="price">₹899</p>
+                <button class="buy-btn" data-name="Matte Black Pen" data-price="899">Add to Cart</button>
+                <a href="https://rzp.io/i/example-link" class="buy-now-btn" target="_blank">Buy Now</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // 1. Create an empty Array to hold our items
+        let cartItems = [];
+
+        // 2. Find our HTML elements
+        const cartBtn = document.getElementById('cart-button');
+        const cartDropdown = document.getElementById('cart-dropdown');
+        const cartItemsList = document.getElementById('cart-items-list');
+        const cartCount = document.getElementById('cart-count');
+
+        // 3. Toggle the dropdown when the cart icon is clicked
+        cartBtn.addEventListener('click', function() {
+            cartDropdown.classList.toggle('active');
+        });
+
+        // 4. Find all "Add to Cart" buttons
+        const addButtons = document.querySelectorAll('.buy-btn');
+
+        addButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                // Get the specific name and price from the button we clicked
+                const itemName = this.getAttribute('data-name');
+                const itemPrice = this.getAttribute('data-price');
+
+                // Add this new item to our array
+                cartItems.push({ name: itemName, price: itemPrice });
+
+                // Call a function to redraw the cart visual
+                updateCartUI();
+            });
+        });
+
+        // 5. This function updates the HTML inside the dropdown
+        function updateCartUI() {
+            // Update the number next to the cart
+            cartCount.innerText = cartItems.length;
+
+            // Clear out the "Your cart is empty" text
+            cartItemsList.innerHTML = '';
+
+            // Loop through our array and create HTML for each item
+            cartItems.forEach(function(item) {
+                cartItemsList.innerHTML += `
+                    <div class="cart-item">
+                        <span>${item.name}</span>
+                        <strong>₹${item.price}</strong>
+                    </div>
+                `;
+            });
+        }
+    </script>
+
+</body>
+</html>

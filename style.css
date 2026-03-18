@@ -1,0 +1,545 @@
+/* 1. We import some beautiful free fonts from Google */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Poppins:wght@300;400;600&display=swap');
+
+/* 2. Basic reset to remove default margins */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f9; /* Light gray background for the main page */
+}
+
+/* 3. The Header Container */
+.knight-header {
+    display: flex;
+    justify-content: space-between; /* Spaces out logo, menu, and cart */
+    align-items: center; /* Centers items vertically */
+    padding: 20px 8%;
+    background-color: #121212; /* Deep, sleek black */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Adds a soft shadow below the header */
+}
+
+/* 4. The "Knight" Logo Styling */
+.logo {
+    font-family: 'Cinzel', serif; /* A regal, knight-like font */
+    font-size: 36px;
+    font-weight: 700;
+    color: #d4af37; /* Metallic Gold color */
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+/* 5. Navigation Menu (Home, Shop, etc.) */
+.nav-links {
+    display: flex;
+    gap: 30px; /* Space between each link */
+}
+
+.nav-links a {
+    color: #ffffff; /* White text */
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+    transition: color 0.3s ease; /* Makes the hover effect smooth */
+}
+
+/* 6. Hover effect (when the mouse goes over a link) */
+.nav-links a:hover {
+    color: #d4af37; /* Turns gold */
+}
+
+/* 7. Shopping Cart Icon Area */
+.cart {
+    color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.cart:hover {
+    transform: scale(1.1); /* Makes the cart slightly bigger when hovered */
+    color: #d4af37;
+}
+
+/* --- NEW CODE FOR THE SHOP PAGE --- */
+
+.shop-container {
+    padding: 50px 8%;
+}
+
+.shop-title {
+    font-family: 'Cinzel', serif;
+    color: #121212;
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+/* Creates a responsive grid for products */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+/* Styles individual product boxes */
+.product-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px); /* Makes the card 'lift' up when hovered */
+}
+
+/* A placeholder box for where your product photos will go */
+.product-image {
+    background-color: #e0e0e0;
+    height: 200px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    margin: 10px 0;
+    font-size: 20px;
+}
+
+.price {
+    color: #d4af37; /* Gold color for the price */
+    font-weight: 600;
+    font-size: 18px;
+}
+
+/* The Add to Cart Button */
+.buy-btn {
+    background-color: #121212;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.buy-btn:hover {
+    background-color: #d4af37;
+    color: #121212;
+}
+
+.buy-now-btn {
+    display: inline-block;
+    background-color: #d4af37; /* Gold color to stand out */
+    color: #121212;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 4px;
+    margin-top: 10px;
+    transition: transform 0.2s ease;
+}
+
+.buy-now-btn:hover {
+    transform: scale(1.05); /* Slightly enlarges when hovered */
+}
+
+/* --- CART DROPDOWN STYLING --- */
+.cart-wrapper {
+    position: relative; /* Keeps the dropdown anchored to the cart icon */
+    display: inline-block;
+}
+
+.cart-dropdown {
+    display: none; /* Hides the dropdown by default */
+    position: absolute;
+    right: 0;
+    top: 40px; /* Pushes it just below the cart icon */
+    background-color: #ffffff;
+    color: #121212;
+    min-width: 260px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    padding: 20px;
+    z-index: 1000; /* Ensures it stays on top of other images */
+}
+
+/* We will use JavaScript to add this 'active' class to make it visible */
+.cart-dropdown.active {
+    display: block; 
+}
+
+.cart-dropdown h3 {
+    margin-top: 0;
+    font-size: 18px;
+    border-bottom: 2px solid #f4f4f9;
+    padding-bottom: 10px;
+}
+
+/* Individual item layout in the list */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.checkout-btn {
+    display: block;
+    text-align: center;
+    background-color: #d4af37;
+    color: #121212;
+    text-decoration: none;
+    padding: 10px;
+    margin-top: 15px;
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+/* --- NEW CODE FOR THE HOMEPAGE --- */
+
+/* 1. HERO SECTION */
+.hero-section {
+    /* We use an Unsplash image for a moody, dark, luxury background */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?auto=format&fit=crop&w=1500&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 80vh; /* Takes up 80% of the screen height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    font-weight: 300;
+}
+
+.hero-btn {
+    background-color: #d4af37;
+    color: #121212;
+    text-decoration: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.hero-btn:hover {
+    background-color: #ffffff;
+}
+
+/* 2. CATEGORIES SECTION */
+.categories-section {
+    padding: 60px 8%;
+    background-color: #ffffff;
+}
+
+.section-title {
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #121212;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.category-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.category-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.category-card:hover img {
+    transform: scale(1.05); /* Slow zoom effect on hover */
+}
+
+.category-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(18, 18, 18, 0.85);
+    color: #d4af37;
+    padding: 10px 20px;
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* 3. TRUST FEATURES SECTION */
+.features-section {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 40px 8%;
+    background-color: #121212;
+    color: #ffffff;
+    text-align: center;
+}
+
+.feature h3 {
+    color: #d4af37;
+    margin-bottom: 5px;
+}
+
+.feature p {
+    font-size: 14px;
+    color: #aaaaaa;
+}
+
+/* 4. FOOTER */
+.knight-footer {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    padding: 40px 8% 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 30px;
+}
+
+.footer-brand h2 {
+    font-family: 'Cinzel', serif;
+    color: #d4af37;
+    margin: 0 0 10px 0;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-links h4 {
+    margin-bottom: 15px;
+    color: #d4af37;
+}
+
+.footer-links a {
+    color: #aaaaaa;
+    text-decoration: none;
+    margin-bottom: 8px;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    color: #777;
+}
+
+/* --- NEW CODE FOR COLLECTIONS & ABOUT PAGES --- */
+
+/* Reusable container for inner pages */
+.page-container {
+    padding: 60px 8%;
+    background-color: #f4f4f9;
+    min-height: 60vh;
+}
+
+.page-title {
+    font-family: 'Cinzel', serif;
+    font-size: 40px;
+    text-align: center;
+    color: #121212;
+    margin-bottom: 50px;
+}
+
+/* Collections Page Layout */
+.collection-row {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 80px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.collection-row.reverse {
+    flex-direction: row-reverse; /* Flips the image and text sides */
+}
+
+.collection-img {
+    width: 50%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.collection-text {
+    width: 50%;
+    padding: 40px;
+}
+
+.collection-text h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 32px;
+    color: #d4af37;
+    margin-top: 0;
+}
+
+.collection-text p {
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* About Page Layout */
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.about-hero-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.about-text-box {
+    padding: 50px;
+}
+
+.about-text-box h2 {
+    font-family: 'Cinzel', serif;
+    color: #121212;
+}
+
+.about-text-box p {
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.promise-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.promise-list li {
+    margin-bottom: 10px;
+    padding-left: 25px;
+    position: relative;
+}
+
+.promise-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #d4af37;
+    font-weight: bold;
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS (MEDIA QUERIES)
+   ========================================= */
+
+/* This rule says: Only apply the CSS inside these brackets if the screen is 768 pixels wide or smaller (tablets and phones) */
+@media (max-width: 768px) {
+    
+    /* 1. Stack the Header */
+    .knight-header {
+        flex-direction: column; /* Stacks the Logo, Menu, and Cart on top of each other */
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap; /* Allows the menu links to wrap to a new line if they get squeezed */
+        justify-content: center;
+        gap: 15px;
+    }
+
+    /* 2. Shrink the Hero Banner Text */
+    .hero-content h1 {
+        font-size: 36px; /* Makes the massive headline smaller so it fits on a phone screen */
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    /* 3. Stack the Collection Rows and About Layout */
+    .collection-row, 
+    .collection-row.reverse {
+        flex-direction: column; /* Changes the layout from Side-by-Side to Top-and-Bottom */
+    }
+
+    .collection-img, 
+    .collection-text {
+        width: 100%; /* Forces the image and the text box to take up the full width of the phone */
+    }
+
+    .collection-img {
+        height: 300px; /* Makes the images a bit shorter so they don't take up the whole screen */
+    }
+
+    .collection-text, 
+    .about-text-box {
+        padding: 20px; /* Reduces the massive padding we had for desktop */
+    }
+
+    /* 4. Center the Footer */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .footer-links {
+        align-items: center; /* Centers the links under the brand name */
+    }
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knight | Premium Everyday Carry</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="knight-header">
+        <a href="index.html" class="logo">KNIGHT.</a>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="collections.html">Collections</a>
+            <a href="about.html">About</a>
+        </nav>
+        <div class="cart-wrapper">
+            <div class="cart" id="cart-button">
+                🛒 (<span id="cart-count">0</span>)
+            </div>
+            <div class="cart-dropdown" id="cart-dropdown">
+                <h3>Your Cart</h3>
+                <div id="cart-items-list">
+                    <p>Your cart is empty.</p>
+                </div>
+                <a href="shop.html" class="checkout-btn">Go to Shop</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Elevate Your Everyday.</h1>
+            <p>Premium watches, leather goods, and writing instruments designed for the modern professional.</p>
+            <a href="shop.html" class="hero-btn">Explore the Collection</a>
+        </div>
+    </section>
+
+    <section class="categories-section">
+        <h2 class="section-title">Shop by Category</h2>
+        <div class="category-grid">
+            <a href="shop.html" class="category-card">
+                <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=500&q=80" alt="Watches">
+                <div class="category-text">Timepieces</div>
+            </a>
+            <a href="shop.html" class="category-card">
+                <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=500&q=80" alt="Leather Goods">
+                <div class="category-text">Leather Goods</div>
+            </a>
+            <a href="shop.html" class="category-card">
+                <img src="https://images.unsplash.com/photo-1585336261022-680e295ce3fe?auto=format&fit=crop&w=500&q=80" alt="Accessories">
+                <div class="category-text">Accessories</div>
+            </a>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="feature">
+            <h3>📦 Free Shipping</h3>
+            <p>On all orders over ₹2000</p>
+        </div>
+        <div class="feature">
+            <h3>🛡️ Secure Checkout</h3>
+            <p>100% safe & encrypted</p>
+        </div>
+        <div class="feature">
+            <h3>↩️ Easy Returns</h3>
+            <p>7-day return policy</p>
+        </div>
+    </section>
+
+    <footer class="knight-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h2>KNIGHT.</h2>
+                <p>Equipping the modern professional with timeless essentials.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="shop.html">Shop All</a>
+                <a href="#">FAQ</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Knight E-Commerce. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const cartBtn = document.getElementById('cart-button');
+        const cartDropdown = document.getElementById('cart-dropdown');
+        cartBtn.addEventListener('click', function() {
+            cartDropdown.classList.toggle('active');
+        });
+    </script>
+
+</body>
+</html>
