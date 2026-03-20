@@ -11,34 +11,37 @@
 <body>
 
     <header class="knight-header">
-        <a href="index.html" class="logo">
-            <img src="images/knight.webp" alt="Logo">
-            <span>KNIGHT</span>
-        </a>
-        <nav class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="shop.html">Shop</a>
-            <a href="collections.html">Collections</a>
-            <a href="about.html">About</a>
-        </nav>
-        <div class="cart-wrapper">
-            <div class="cart" id="cart-button">
-                🛒 (<span id="cart-count">0</span>)
-            </div>
+        <div class="header-wrapper">
+            <a href="index.html" class="logo">
+                <img src="images/knight.webp" alt="Logo">
+                <span>KNIGHT</span>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="collections.html">Collections</a>
+                <a href="about.html">About</a>
+            </nav>
+            <div class="cart-wrapper">
+                <div class="cart" id="cart-button">
+                    🛒 (<span id="cart-count">0</span>)
+                </div>
 
-            <div class="cart-dropdown" id="cart-dropdown">
-                <h3>Your Cart</h3>
-                <div id="cart-items-list">
-                    <p>Your cart is empty.</p>
+                <div class="cart-dropdown" id="cart-dropdown">
+                    <h3>Your Cart</h3>
+                    <div id="cart-items-list">
+                        <p>Your cart is empty.</p>
+                    </div>
+                    <div class="cart-total" id="cart-total">
+                        <span>Total:</span>
+                        <span id="total-amount">₹0</span>
+                    </div>
+                    <a href="checkout.html" class="checkout-btn">Go to Checkout</a>
                 </div>
-                <div class="cart-total" id="cart-total">
-                    <span>Total:</span>
-                    <span id="total-amount">₹0</span>
-                </div>
-                <a href="checkout.html" class="checkout-btn">Go to Checkout</a>
             </div>
         </div>
     </header>
+
 
     <main class="shop-container">
         <h1 class="shop-title">New Arrivals</h1>

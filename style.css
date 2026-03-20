@@ -8,21 +8,38 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: #f4f4f9;
     /* Light gray background for the main page */
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
+
+:root {
+    --max-content-width: 1440px;
+    --section-padding: 50px 5%;
+}
+
 
 /* 3. The Header Container */
 .knight-header {
     display: flex;
     justify-content: space-between;
-    /* Spaces out logo, menu, and cart */
     align-items: center;
-    /* Centers items vertically */
-    padding: 20px 8%;
+    padding: 20px 5%;
     background-color: #121212;
-    /* Deep, sleek black */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    /* Adds a soft shadow below the header */
+    position: sticky;
+    top: 0;
+    z-index: 1100;
 }
+
+/* Add a wrapper for header content to constrain it on ultra-wide screens */
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+}
+
 
 /* 4. The "Knight" Logo Styling */
 .logo {
@@ -84,8 +101,11 @@ body {
 /* --- NEW CODE FOR THE SHOP PAGE --- */
 
 .shop-container {
-    padding: 50px 8%;
+    padding: var(--section-padding);
+    max-width: var(--max-content-width);
+    margin: 0 auto;
 }
+
 
 .shop-title {
     font-family: 'Cinzel', serif;
@@ -325,9 +345,15 @@ body {
 
 /* 2. CATEGORIES SECTION */
 .categories-section {
-    padding: 60px 8%;
+    padding: var(--section-padding);
     background-color: #ffffff;
 }
+
+.category-grid, .product-grid {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+}
+
 
 .section-title {
     font-family: 'Cinzel', serif;
@@ -379,11 +405,21 @@ body {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    padding: 40px 8%;
+    padding: 40px 5%;
     background-color: #121212;
     color: #ffffff;
     text-align: center;
 }
+
+.features-wrapper {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+}
+
 
 .feature h3 {
     color: #d4af37;
@@ -399,8 +435,9 @@ body {
 .knight-footer {
     background-color: #0a0a0a;
     color: #ffffff;
-    padding: 40px 8% 20px;
+    padding: 40px 5% 20px;
 }
+
 
 .footer-content {
     display: flex;
@@ -409,7 +446,10 @@ body {
     gap: 30px;
     border-bottom: 1px solid #333;
     padding-bottom: 30px;
+    max-width: var(--max-content-width);
+    margin: 0 auto;
 }
+
 
 .footer-brand h2 {
     font-family: 'Cinzel', serif;
@@ -439,12 +479,7 @@ body {
     color: #ffffff;
 }
 
-.footer-content {
-    margin-bottom: 0;
-    display: flex;
-    /* justify-content: center; */
-    align-items: center;
-}
+
 
 .footer-bottom {
     text-align: center;
@@ -460,10 +495,13 @@ body {
 
 /* Reusable container for inner pages */
 .page-container {
-    padding: 60px 8%;
+    padding: var(--section-padding);
     background-color: #f4f4f9;
     min-height: 60vh;
+    max-width: var(--max-content-width);
+    margin: 0 auto;
 }
+
 
 .page-title {
     font-family: 'Cinzel', serif;
@@ -573,11 +611,16 @@ body {
 
     /* 1. Stack the Header */
     .knight-header {
-        flex-direction: column;
-        /* Stacks the Logo, Menu, and Cart on top of each other */
         padding: 15px;
         gap: 15px;
+        position: static;
     }
+
+    .header-wrapper {
+        flex-direction: column;
+        gap: 15px;
+    }
+
 
     .logo {
         font-size: 24px;
@@ -718,3 +761,23 @@ input:focus {
     cursor: pointer;
     font-size: 18px;
 }
+
+/* 5. High Resolution Refinements (e.g. 4K or ultra-wide) */
+@media (min-width: 1921px) {
+    :root {
+        --max-content-width: 1800px;
+    }
+
+    .hero-content h1 {
+        font-size: 80px;
+    }
+
+    .hero-content p {
+        font-size: 24px;
+        max-width: 800px;
+    }
+
+    .section-title, .shop-title, .page-title {
+        font-size: 48px;
+    }
+}
