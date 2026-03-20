@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop | Knight E-Commerce</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <header class="knight-header">
-        <a href="index.html" class="logo">KNIGHT.</a>
+        <a href="index.html" class="logo">
+            <img src="images/knight.webp" alt="Logo">
+            <span>KNIGHT</span>
+        </a>
         <nav class="nav-links">
             <a href="index.html">Home</a>
             <a href="shop.html">Shop</a>
@@ -20,47 +25,46 @@
             <div class="cart" id="cart-button">
                 🛒 (<span id="cart-count">0</span>)
             </div>
-            
+
             <div class="cart-dropdown" id="cart-dropdown">
                 <h3>Your Cart</h3>
                 <div id="cart-items-list">
                     <p>Your cart is empty.</p>
                 </div>
-                <a href="#" class="checkout-btn">Go to Checkout</a>
+                <div class="cart-total" id="cart-total">
+                    <span>Total:</span>
+                    <span id="total-amount">₹0</span>
+                </div>
+                <a href="checkout.html" class="checkout-btn">Go to Checkout</a>
             </div>
         </div>
     </header>
 
     <main class="shop-container">
         <h1 class="shop-title">New Arrivals</h1>
-        
-        <div class="product-grid">
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=400&q=80" alt="Sleek Obsidian Watch" class="product-image">
-                <h3>The Obsidian Watch</h3>
-                <p class="price">₹4,999</p>
-                <button class="buy-btn" data-name="The Obsidian Watch" data-price="4999">Add to Cart</button>
-                <a href="https://rzp.io/i/example-link" class="buy-now-btn" target="_blank">Buy Now</a>
-            </div>
 
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=400&q=80" alt="Brown Leather Wallet" class="product-image">
-                <h3>Classic Leather Wallet</h3>
-                <p class="price">₹1,499</p>
-                <button class="buy-btn" data-name="Classic Leather Wallet" data-price="1499">Add to Cart</button>
-                <a href="https://rzp.io/i/example-link" class="buy-now-btn" target="_blank">Buy Now</a>
+        <div class="product-grid" id="product-grid">
+            <!-- Products will be dynamically inserted here -->
+        </div>
 
-            </div>
+        <h1 class="shop-title" style="margin-top: 60px;">Clothing</h1>
 
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1585336261022-680e295ce3fe?auto=format&fit=crop&w=400&q=80" alt="Luxury Matte Black Pen" class="product-image">
-                <h3>Matte Black Pen</h3>
-                <p class="price">₹899</p>
-                <button class="buy-btn" data-name="Matte Black Pen" data-price="899">Add to Cart</button>
-                <a href="https://rzp.io/i/example-link" class="buy-now-btn" target="_blank">Buy Now</a>
-            </div>
+        <div class="product-grid" id="clothing-grid">
+            <!-- Clothing items will be dynamically inserted here -->
         </div>
     </main>
+
+    <footer class="knight-footer">
+        <div class="footer-content">
+            <a href="index.html" class="logo">
+                <img src="images/knight.webp" alt="Logo">
+                <span>KNIGHT</span>
+            </a>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Knight E-Commerce. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script>
         // 1. Create an empty Array to hold our items
@@ -73,46 +77,176 @@
         const cartCount = document.getElementById('cart-count');
 
         // 3. Toggle the dropdown when the cart icon is clicked
-        cartBtn.addEventListener('click', function() {
+        cartBtn.addEventListener('click', function () {
             cartDropdown.classList.toggle('active');
         });
 
-        // 4. Find all "Add to Cart" buttons
-        const addButtons = document.querySelectorAll('.buy-btn');
-
-        addButtons.forEach(function(button) {
-            button.addEventListener('click', function() {
-                // Get the specific name and price from the button we clicked
-                const itemName = this.getAttribute('data-name');
-                const itemPrice = this.getAttribute('data-price');
+        // 4. Use event delegation for "Add to Cart" buttons
+        document.addEventListener('click', function (event) {
+            if (event.target.classList.contains('buy-btn')) {
+                const button = event.target;
+                const itemName = button.getAttribute('data-name');
+                const itemPrice = parseFloat(button.getAttribute('data-price')) || 0;
 
                 // Add this new item to our array
                 cartItems.push({ name: itemName, price: itemPrice });
 
                 // Call a function to redraw the cart visual
                 updateCartUI();
-            });
+            }
         });
 
         // 5. This function updates the HTML inside the dropdown
         function updateCartUI() {
             // Update the number next to the cart
             cartCount.innerText = cartItems.length;
+            const cartTotal = document.getElementById('cart-total');
+            const totalAmount = document.getElementById('total-amount');
 
-            // Clear out the "Your cart is empty" text
-            cartItemsList.innerHTML = '';
+            if (cartItems.length === 0) {
+                cartItemsList.innerHTML = '<p>Your cart is empty.</p>';
+                cartTotal.style.display = 'none';
+                return;
+            }
 
-            // Loop through our array and create HTML for each item
-            cartItems.forEach(function(item) {
-                cartItemsList.innerHTML += `
+            cartTotal.style.display = 'flex';
+
+            // Build the HTML for all items first
+            let itemsHTML = '';
+            let total = 0;
+            cartItems.forEach(function (item, index) {
+                total += item.price;
+                itemsHTML += `
                     <div class="cart-item">
-                        <span>${item.name}</span>
-                        <strong>₹${item.price}</strong>
+                        <div class="item-info">
+                            <span>${item.name}</span>
+                            <strong>₹${item.price.toLocaleString('en-IN')}</strong>
+                        </div>
+                        <button class="remove-btn" onclick="removeItem(${index})">×</button>
                     </div>
                 `;
             });
+
+            // Update the list and total
+            cartItemsList.innerHTML = itemsHTML;
+            totalAmount.innerText = `₹${total.toLocaleString('en-IN')}`;
         }
+
+        // 6. Function to remove items
+        window.removeItem = function (index) {
+            cartItems.splice(index, 1);
+            updateCartUI();
+        };
+
+        //List of products
+        const products = [
+            {
+                id: 1,
+                image: "images/luxurywatch.jpg",
+                title: "Fossil Men's Analog Watch",
+                price: "₹9,799"
+            },
+            {
+                id: 2,
+                image: "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=400&q=80",
+                title: "Leather Wallet",
+                price: "₹1,499"
+            },
+            {
+                id: 3,
+                image: "images/parkerpen.jpg",
+                title: "Parker Frontier Matte Black Pen",
+                price: "₹899"
+            },
+            {
+                id: 4,
+                image: "images/geometrybox2.jpg",
+                title: "Space Geometry Box",
+                price: "₹1,608"
+            },
+            {
+                id: 5,
+                image: "images/keyboardmouse.jpg",
+                title: "Wired Mechanical Keyboard Mouse combo",
+                price: "₹1,299"
+            },
+            {
+                id: 6,
+                image: "images/schoolbag.jpg",
+                title: "Cool Boy's School Bag",
+                price: "₹2,100"
+            },
+            {
+                id: 7,
+                image: "images/nintendo2.jpg",
+                title: "Nintendo Switch 2",
+                price: "₹79,000"
+            },
+
+            {
+                id: 8,
+                image: "images/glasses2.jpg",
+                title: "RayBan Men's Round Sunglasses",
+                price: "₹14,099"
+            },
+
+            {
+                id: 9,
+                image: "images/shoes.jpg",
+                title: "Nike Air Max",
+                price: "₹12,000"
+            }
+        ]
+
+        const clothingProducts = [
+            {
+                id: 10,
+                image: "images/hoodie.jpg",
+                title: "Premium Oversized Hoodie",
+                price: "₹2,499"
+            },
+            {
+                id: 11,
+                image: "images/chinos.jpg",
+                title: "Casual Chino Trousers",
+                price: "₹1,999"
+            },
+            {
+                id: 12,
+                image: "images/tshirt.jpg",
+                title: "Classic White T-Shirt",
+                price: "₹899"
+            },
+            {
+                id: 13,
+                image: "images/denimjacket.jpg",
+                title: "Denim Jacket",
+                price: "₹3,499"
+            }
+        ];
+
+        // Generate product cards dynamically
+        function renderProducts(targetId, productList) {
+            const grid = document.getElementById(targetId);
+
+            const productsHTML = productList.map((product) => `
+                <div class="product-card">
+                    <img src="${product.image}" alt="${product.title}" class="product-image">
+                    <h3>${product.title}</h3>
+                    <p class="price">${product.price}</p>
+                    <button class="buy-btn" data-name="${product.title}" data-price="${product.price.replace(/[₹,]/g, '')}">Add to Cart</button>
+                    <a href="checkout.html" class="buy-now-btn" target="_blank">Buy Now</a>
+                </div>
+            `).join('');
+
+            grid.innerHTML = productsHTML;
+        }
+
+        // Call the function to render products
+        renderProducts('product-grid', products);
+        renderProducts('clothing-grid', clothingProducts);
     </script>
 
 </body>
+
 </html>

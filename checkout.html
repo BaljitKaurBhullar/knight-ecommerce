@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Knight</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="knight-header">
+        <a href="index.html" class="logo">
+            <img src="images/knight.webp" alt="Logo">
+            <span>KNIGHT</span>
+        </a>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+        </nav>
+    </header>
+
+    <main class="page-container">
+        <h1 class="page-title">Secure Checkout</h1>
+
+        <div class="checkout-container">
+            <form id="mock-checkout-form">
+
+                <div class="form-section">
+                    <h2>1. Shipping Address</h2>
+                    <label>Full Name</label>
+                    <input type="text" placeholder="John Doe" required>
+
+                    <label>Email Address</label>
+                    <input type="email" placeholder="john@example.com" required>
+
+                    <label>Street Address</label>
+                    <input type="text" placeholder="123 Main St, Apartment 4B" required>
+
+                    <div class="input-row">
+                        <div>
+                            <label>City</label>
+                            <input type="text" placeholder="New Delhi" required>
+                        </div>
+                        <div>
+                            <label>PIN Code</label>
+                            <input type="text" placeholder="110001" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section payment-section">
+                    <h2>2. Payment Method</h2>
+                    <p class="demo-warning">⚠️ This is a student project. Please use fake details.</p>
+
+                    <label>Name on Card</label>
+                    <input type="text" placeholder="J DOE" required>
+
+                    <label>Card Number</label>
+                    <input type="text" placeholder="XXXX XXXX XXXX 1234" maxlength="16" required>
+
+                    <div class="input-row">
+                        <div>
+                            <label>Expiry (MM/YY)</label>
+                            <input type="text" placeholder="12/28" required>
+                        </div>
+                        <div>
+                            <label>CVV</label>
+                            <input type="text" placeholder="123" maxlength="3" required>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="hero-btn checkout-submit">Place Demo Order</button>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        const checkoutForm = document.getElementById('mock-checkout-form');
+
+        // We tell the form to listen for the "submit" action
+        checkoutForm.addEventListener('submit', function (event) {
+            // This line stops the page from reloading (which is the default HTML behavior)
+            event.preventDefault();
+
+            // Create a fake loading experience
+            const submitBtn = document.querySelector('.checkout-submit');
+            submitBtn.innerText = "Processing...";
+            submitBtn.style.backgroundColor = "#555";
+
+            // Wait 2 seconds, then show the success message!
+            setTimeout(() => {
+                alert("🎉 SUCCESS! \n\nThank you for testing the Knight E-Commerce project. \n(Note: This was a simulation, no real payment was processed.)");
+
+                // Redirect them back to the home page
+                window.location.href = "index.html";
+            }, 2000);
+        });
+    </script>
+</body>
+
+</html>

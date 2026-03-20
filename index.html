@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Knight | Premium Everyday Carry</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <header class="knight-header">
-        <a href="index.html" class="logo">KNIGHT.</a>
+        <a href="index.html" class="logo">
+            <img src="images/knight.webp" alt="Logo">
+            <span>KNIGHT</span>
+        </a>
         <nav class="nav-links">
             <a href="index.html">Home</a>
             <a href="shop.html">Shop</a>
@@ -42,15 +47,18 @@
         <h2 class="section-title">Shop by Category</h2>
         <div class="category-grid">
             <a href="shop.html" class="category-card">
-                <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=500&q=80" alt="Watches">
+                <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=500&q=80"
+                    alt="Watches">
                 <div class="category-text">Timepieces</div>
             </a>
             <a href="shop.html" class="category-card">
-                <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=500&q=80" alt="Leather Goods">
+                <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=500&q=80"
+                    alt="Leather Goods">
                 <div class="category-text">Leather Goods</div>
             </a>
             <a href="shop.html" class="category-card">
-                <img src="https://images.unsplash.com/photo-1585336261022-680e295ce3fe?auto=format&fit=crop&w=500&q=80" alt="Accessories">
+                <img src="https://images.unsplash.com/photo-1585336261022-680e295ce3fe?auto=format&fit=crop&w=500&q=80"
+                    alt="Accessories">
                 <div class="category-text">Accessories</div>
             </a>
         </div>
@@ -74,14 +82,17 @@
     <footer class="knight-footer">
         <div class="footer-content">
             <div class="footer-brand">
-                <h2>KNIGHT.</h2>
+                <a href="index.html" class="logo">
+                    <img src="images/knight.webp" alt="Logo">
+                    <span>KNIGHT</span>
+                </a>
                 <p>Equipping the modern professional with timeless essentials.</p>
             </div>
             <div class="footer-links">
                 <h4>Quick Links</h4>
                 <a href="shop.html">Shop All</a>
                 <a href="#">FAQ</a>
-                <a href="#">Contact Us</a>
+                <a href="contactus.html">Contact Us</a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -92,10 +103,11 @@
     <script>
         const cartBtn = document.getElementById('cart-button');
         const cartDropdown = document.getElementById('cart-dropdown');
-        cartBtn.addEventListener('click', function() {
+        cartBtn.addEventListener('click', function () {
             cartDropdown.classList.toggle('active');
         });
     </script>
 
 </body>
+
 </html>

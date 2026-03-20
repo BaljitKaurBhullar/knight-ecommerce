@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Collections | Knight</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <header class="knight-header">
-        <a href="index.html" class="logo">KNIGHT.</a>
+        <a href="index.html" class="logo">
+            <img src="images/knight.webp" alt="Logo">
+            <span>KNIGHT</span>
+        </a>
         <nav class="nav-links">
             <a href="index.html">Home</a>
             <a href="shop.html">Shop</a>
@@ -34,10 +39,12 @@
         <h1 class="page-title">Our Collections</h1>
 
         <div class="collection-row">
-            <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=80" alt="Watches" class="collection-img">
+            <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=80"
+                alt="Watches" class="collection-img">
             <div class="collection-text">
                 <h2>The Executive Series</h2>
-                <p>Precision-engineered timepieces designed to make a statement in the boardroom and beyond. Featuring scratch-resistant sapphire glass and automatic movement.</p>
+                <p>Precision-engineered timepieces designed to make a statement in the boardroom and beyond. Featuring
+                    scratch-resistant sapphire glass and automatic movement.</p>
                 <a href="shop.html" class="buy-btn">Shop Watches</a>
             </div>
         </div>
@@ -45,25 +52,58 @@
         <div class="collection-row reverse">
             <div class="collection-text">
                 <h2>Heritage Leather</h2>
-                <p>Full-grain leather wallets and folios that age beautifully over time. Each piece is hand-stitched by master craftsmen to ensure it lasts a lifetime.</p>
+                <p>Full-grain leather wallets and folios that age beautifully over time. Each piece is hand-stitched by
+                    master craftsmen to ensure it lasts a lifetime.</p>
                 <a href="shop.html" class="buy-btn">Shop Leather</a>
             </div>
-            <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=800&q=80" alt="Leather Wallet" class="collection-img">
+            <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=800&q=80"
+                alt="Leather Wallet" class="collection-img">
+        </div>
+
+        <div class="collection-row">
+            <img src="images/geometrybox2.jpg" alt="Geometry Box" class="collection-img">
+            <div class="collection-text">
+                <h2>Kid's Section</h2>
+                <p>Premium, durable gear built for the next generation. From reliable first watches to rugged wallets
+                    tough enough to survive the seventh-grade hallways, it's the perfect starting point for a young
+                    adult's everyday carry.</p>
+                <a href="shop.html" class="buy-btn">Shop Kid's Section</a>
+            </div>
+
+        </div>
+        <div class="collection-row">
+            <img src="images/clothing.jpg" alt="Clothing" class="collection-img">
+            <div class="collection-text">
+                <h2>Clothing</h2>
+                <p>Build your wardrobe on a foundation of premium, minimalist essentials. From heavyweight cotton tees
+                    that hold their shape to sleek, tailored outerwear, our clothing line brings the same durable,
+                    understated luxury to your closet as our everyday carry gear.</p>
+                <a href="shop.html" class="buy-btn">Shop Clothing</a>
+            </div>
+
         </div>
     </main>
 
     <footer class="knight-footer">
+        <div class="footer-content">
+            <a href="index.html" class="logo">
+                <img src="images/knight.webp" alt="Logo">
+                <span>KNIGHT</span>
+            </a>
+        </div>
         <div class="footer-bottom">
             <p>&copy; 2026 Knight E-Commerce. All rights reserved.</p>
         </div>
+
     </footer>
 
     <script>
         const cartBtn = document.getElementById('cart-button');
         const cartDropdown = document.getElementById('cart-dropdown');
-        cartBtn.addEventListener('click', function() {
+        cartBtn.addEventListener('click', function () {
             cartDropdown.classList.toggle('active');
         });
     </script>
 </body>
+
 </html>
