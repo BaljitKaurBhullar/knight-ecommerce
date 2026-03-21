@@ -36,8 +36,16 @@
             <div class="right-section">
                 <form id="mock-checkout-form">
                     <div class="form-section">
-                        <label>Name</label>
-                        <input type="text" placeholder="James" required>
+                        <div class="input-row">
+                            <div>
+                                <label>Name</label>
+                                <input type="text" placeholder="First Name" required>
+                            </div>
+                            <div>
+                                <label>_</label>
+                                <input type="text" placeholder="Last Name" required>
+                            </div>
+                        </div>
 
                         <label>E-mail Address</label>
                         <input type="email" placeholder="abc123@example.com" required>
@@ -48,10 +56,11 @@
                         <label>Message</label>
                         <input type="message" placeholder="Type your Message..." required>
                     </div>
+                    <button type="submit" class="hero-btn checkout-submit">Submit</button>
                 </form>
+
             </div>
         </div>
-
     </main>
 
     <footer class="knight-footer">
@@ -65,6 +74,30 @@
             <p>&copy; 2026 Knight E-Commerce. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        const checkoutForm = document.getElementById('mock-checkout-form');
+
+        // We tell the form to listen for the "submit" action
+        checkoutForm.addEventListener('submit', function (event) {
+            // This line stops the page from reloading (which is the default HTML behavior)
+            event.preventDefault();
+
+            // Create a fake loading experience
+            const submitBtn = document.querySelector('.checkout-submit');
+            submitBtn.innerText = "Processing...";
+            submitBtn.style.backgroundColor = "#555";
+
+            // Wait 2 seconds, then show the success message!
+            setTimeout(() => {
+                alert("🎉 SUCCESS! \n\nThank you for the Feedback");
+
+                // Redirect them back to the home page
+                window.location.href = "index.html";
+            }, 2000);
+        });
+    </script>
 </body>
+
 
 </html>

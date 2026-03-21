@@ -754,6 +754,16 @@ input[type="email"] {
     /* Ensures padding doesn't stretch the box */
 }
 
+input[type="message"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
 input:focus {
     outline: none;
     border-color: #d4af37;
@@ -821,14 +831,4 @@ input:focus {
     padding: 31px;
     width: 50%;
     align-content: center;
-}
-
-input[type="message"] {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-family: 'Poppins', sans-serif;
-    box-sizing: border-box;
 }
