@@ -8,8 +8,13 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: #f4f4f9;
     /* Light gray background for the main page */
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
+
 
 :root {
     --max-content-width: 1440px;
@@ -104,7 +109,10 @@ body {
     padding: var(--section-padding);
     max-width: var(--max-content-width);
     margin: 0 auto;
+    flex: 1;
+    /* Pushes footer down */
 }
+
 
 
 .shop-title {
@@ -349,7 +357,8 @@ body {
     background-color: #ffffff;
 }
 
-.category-grid, .product-grid {
+.category-grid,
+.product-grid {
     max-width: var(--max-content-width);
     margin: 0 auto;
 }
@@ -378,6 +387,7 @@ body {
 
 .category-card img {
     width: 100%;
+    border-radius: 8px;
     height: 300px;
     object-fit: cover;
     transition: transform 0.5s ease;
@@ -436,7 +446,10 @@ body {
     background-color: #0a0a0a;
     color: #ffffff;
     padding: 40px 5% 20px;
+    margin-top: auto;
+    /* Pushes footer to bottom */
 }
+
 
 
 .footer-content {
@@ -500,7 +513,10 @@ body {
     min-height: 60vh;
     max-width: var(--max-content-width);
     margin: 0 auto;
+    flex: 1;
+    /* Pushes footer down */
 }
+
 
 
 .page-title {
@@ -777,7 +793,42 @@ input:focus {
         max-width: 800px;
     }
 
-    .section-title, .shop-title, .page-title {
+    .section-title,
+    .shop-title,
+    .page-title {
         font-size: 48px;
     }
-}
+}
+
+.contact-section {
+    display: flex;
+    margin: 2px auto;
+    justify-content: space-evenly;
+    padding: 20px;
+    gap: 2%;
+    max-height: fit-content;
+    max-width: fit-content;
+}
+
+.left-section {
+    padding: 31px;
+    width: 50%;
+    justify-items: anchor-center;
+    align-content: center;
+}
+
+.right-section {
+    padding: 31px;
+    width: 50%;
+    align-content: center;
+}
+
+input[type="message"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}

@@ -18,36 +18,53 @@
             <nav class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="shop.html">Shop</a>
-                <a href="collections.html">Collections</a>
-                <a href="about.html">About Us</a>
             </nav>
-            <div class="cart-wrapper">
-                <div class="cart" id="cart-button">
-                    🛒 (<span id="cart-count">0</span>)
-                </div>
-                <div class="cart-dropdown" id="cart-dropdown">
-                    <h3>Your Cart</h3>
-                    <div id="cart-items-list">
-                        <p>Your Cart is empty</p>
-                    </div>
-                    <a href="shop.html" class="checkout-btn">Go to Shop</a>
-                </div>
-            </div>
         </div>
     </header>
 
     <main class="page-container">
-        <h1 class="page-title">Contact Us</h1>
-        <p>This page is under Development</p>
+
+        <div class="contact-section">
+            <div class="left-section">
+                <h1 class="page-title">Contact Us</h1>
+                <p>Feel free to use the form or drop us an E-mail. Old-Fashioned phone calls work too.</p>
+                <div>
+                    <h3>📞 +91 83609-86235</h3>
+                    <h3>✉️ samarpratapsinghbhullar@gmail.com</h3>
+                </div>
+            </div>
+            <div class="right-section">
+                <form id="mock-checkout-form">
+                    <div class="form-section">
+                        <label>Name</label>
+                        <input type="text" placeholder="James" required>
+
+                        <label>E-mail Address</label>
+                        <input type="email" placeholder="abc123@example.com" required>
+
+                        <label>Phone Number</label>
+                        <input type="text" placeholder="+91 XXXXX XXXXX" maxlength="15" required>
+
+                        <label>Message</label>
+                        <input type="message" placeholder="Type your Message..." required>
+                    </div>
+                </form>
+            </div>
+        </div>
+
     </main>
 
-    <script>
-        const cartBtn = document.getElementById('cart-button');
-        const cartDropdown = document.getElementById('cart-dropdown');
-        cartBtn.addEventListener('click', function () {
-            cartDropdown.classList.toggle('active');
-        });
-    </script>
+    <footer class="knight-footer">
+        <div class="footer-content">
+            <a href="index.html" class="logo">
+                <img src="images/knight.webp" alt="logo">
+                <span>KNIGHT</span>
+            </a>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Knight E-Commerce. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 
 </html>

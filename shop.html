@@ -55,6 +55,18 @@
         <div class="product-grid" id="clothing-grid">
             <!-- Clothing items will be dynamically inserted here -->
         </div>
+
+        <h1 class="shop-title" style="margin-top: 60px;">Electronics</h1>
+
+        <div class="product-grid" id="electronics-grid">
+            <!--Electronics will be dynamically inserted here-->
+        </div>
+
+        <h1 class="shop-title" style="margin-top: 60px;">Sports and Outdoors</h1>
+
+        <div class="product-grid" id="sports-grid">
+            <!--Sports items will be dynamically inserted here-->
+        </div>
     </main>
 
     <footer class="knight-footer">
@@ -198,35 +210,96 @@
                 image: "images/shoes.jpg",
                 title: "Nike Air Max",
                 price: "₹12,000"
-            }
+            },
+            {
+                id: 10,
+                image: "images/macbookneo.jpg",
+                title: "Macbook Neo",
+                price: "₹69,900"
+            },
         ]
 
         const clothingProducts = [
             {
-                id: 10,
+                id: 11,
                 image: "images/hoodie.jpg",
                 title: "Premium Oversized Hoodie",
                 price: "₹2,499"
             },
             {
-                id: 11,
+                id: 12,
                 image: "images/chinos.jpg",
                 title: "Casual Chino Trousers",
                 price: "₹1,999"
             },
             {
-                id: 12,
+                id: 13,
                 image: "images/tshirt.jpg",
                 title: "Classic White T-Shirt",
                 price: "₹899"
             },
             {
-                id: 13,
+                id: 14,
                 image: "images/denimjacket.jpg",
                 title: "Denim Jacket",
                 price: "₹3,499"
             }
+        ]
+
+        const electronicproducts = [
+            {
+                id: 15,
+                image: "images/macmini.jpg",
+                title: "Mac Mini M4",
+                price: "₹86,400"
+            },
+            {
+                id: 16,
+                image: "images/ipadair.jpg",
+                title: "IPad Air",
+                price: "₹70,299"
+            },
+            {
+                id: 17,
+                image: "images/s25ultra.jpg",
+                title: "Samsung S25 Ultra",
+                price: "₹1,29,999"
+            },
+            {
+                id: 18,
+                image: "images/xiaomitv.jpg",
+                title: "XIAOMI TV F 55, 55 Inch",
+                price: "₹39,066"
+            },
         ];
+
+        const sportsproducts = [
+            {
+                id: 19,
+                image: "images/studs.jpg",
+                title: "Adidas Men's Adizero Electric Football Sneakers",
+                price: "₹6,594"
+            },
+            {
+                id: 20,
+                image: "images/bat.jpg",
+                title: "SS T20 Wooden Cricket bat",
+                price: "₹1,459"
+            },
+            {
+                id: 21,
+                image: "images/basketball.jpg",
+                title: "Wilson Basketball",
+                price: "₹3,834"
+            },
+            {
+                id: 22,
+                image: "images/cycle.jpg",
+                title: "Leader Gladiator 26T Cycle",
+                price: "₹8,599"
+            },
+
+        ]
 
         // Generate product cards dynamically
         function renderProducts(targetId, productList) {
@@ -248,6 +321,8 @@
         // Call the function to render products
         renderProducts('product-grid', products);
         renderProducts('clothing-grid', clothingProducts);
+        renderProducts('electronics-grid', electronicproducts);
+        renderProducts('sports-grid', sportsproducts);
     </script>
 
 </body>
