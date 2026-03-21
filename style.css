@@ -698,6 +698,17 @@ body {
         align-items: center;
         /* Centers the links under the brand name */
     }
+
+    .right-section {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .left-section {
+        text-align: center;
+        width: 100%;
+        padding: 20px;
+    }
 }
 
 /* --- NEW CODE FOR CHECKOUT PAGE --- */
@@ -818,6 +829,7 @@ input:focus {
     gap: 2%;
     max-height: fit-content;
     max-width: fit-content;
+    flex-wrap: wrap;
 }
 
 .left-section {
