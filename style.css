@@ -126,14 +126,10 @@ body {
 /* Creates a responsive grid for products */
 .product-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    /* This forces one item per row */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
-    max-width: 600px;
-    /* Optional: adds a limit so cards don't get too wide on big screens */
-    margin: 0 auto;
-    /* Centers the vertical line */
 }
+
 
 /* Styles individual product boxes */
 .product-card {
@@ -651,7 +647,7 @@ body {
    ========================================= */
 
 /* This rule says: Only apply the CSS inside these brackets if the screen is 768 pixels wide or smaller (tablets and phones) */
-@media (max-width: 768px) {
+@media (max-width: 789px) {
 
     /* 1. Stack the Header */
     .knight-header {
@@ -744,7 +740,14 @@ body {
         flex-direction: column;
         gap: 0;
     }
+
+    /* 7. Product Grid Mobile (Straight Line) */
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 }
+
 
 
 /* --- NEW CODE FOR CHECKOUT PAGE --- */
